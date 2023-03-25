@@ -59,9 +59,10 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(36)))), ((int)(((byte)(21)))));
             this.label1.Location = new System.Drawing.Point(268, 74);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(247, 84);
+            this.label1.Size = new System.Drawing.Size(290, 84);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Sign In";
+            this.label1.Text = "Sign Out";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
