@@ -63,19 +63,9 @@ namespace ProjectHotel.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap hotellogo {
+        internal static System.Drawing.Bitmap profile_user {
             get {
-                object obj = ResourceManager.GetObject("hotellogo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap hotellogo__Phone_ {
-            get {
-                object obj = ResourceManager.GetObject("hotellogo (Phone)", resourceCulture);
+                object obj = ResourceManager.GetObject("profile-user", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
