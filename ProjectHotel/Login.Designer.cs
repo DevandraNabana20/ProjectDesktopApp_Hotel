@@ -234,7 +234,7 @@
             this.guna2PictureBox4.UseTransparentBackground = true;
             this.guna2PictureBox4.Click += new System.EventHandler(this.guna2PictureBox4_Click);
             // 
-            // Form1
+            // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -243,7 +243,8 @@
             this.ClientSize = new System.Drawing.Size(681, 814);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.Transparent;
-            this.Name = "Form1";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Form1_Load);
