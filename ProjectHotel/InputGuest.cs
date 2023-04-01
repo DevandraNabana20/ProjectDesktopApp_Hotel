@@ -33,7 +33,9 @@ namespace ProjectHotel
             guna2DataGridView1.Columns[4].HeaderText = "Guest Gender";
             guna2DataGridView1.Columns[5].HeaderText = "Guest Address";
             guna2DataGridView1.Columns[6].HeaderText = "Guest Telephone Number";
-            
+
+            // Menghapus pilihan baris pada datagridview secara default
+            guna2DataGridView1.ClearSelection();
         }
 
         private void guna2PictureBox3_Click(object sender, EventArgs e)
@@ -310,6 +312,37 @@ namespace ProjectHotel
             catch (Exception ex)
             {
                 MessageBox.Show(this, "An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void guna2PictureBox4_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtIdentity.Text) ||
+                string.IsNullOrWhiteSpace(txtNama.Text) ||
+                string.IsNullOrWhiteSpace(txtTelephone.Text) ||
+                string.IsNullOrWhiteSpace(txtAddress.Text) ||
+                guna2DateTimePicker1.Value == null ||
+                guna2ComboBox1.SelectedItem == null|| guna2DataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select at least one row in the table before continuing.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (string.IsNullOrWhiteSpace(txtIdentity.Text)) txtIdentity.Focus();
+                else if (string.IsNullOrWhiteSpace(txtNama.Text)) txtNama.Focus();
+                else if (string.IsNullOrWhiteSpace(txtTelephone.Text)) txtTelephone.Focus();
+                else if (string.IsNullOrWhiteSpace(txtAddress.Text)) txtAddress.Focus();
+                else if (guna2DateTimePicker1.Value == null) guna2DateTimePicker1.Focus();
+                else if (guna2ComboBox1.SelectedItem == null) guna2ComboBox1.Focus();
+                return;
+            }
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show("Guest Name : "+txtNama.Text+", Is The Guest Name Correct?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    // If at least one row is selected, enable the button
+                    guna2PictureBox4.Enabled = true;
+                    this.Hide();
+                }
+               
             }
         }
     }
