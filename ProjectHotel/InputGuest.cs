@@ -55,6 +55,7 @@ namespace ProjectHotel
             this.label6.Parent = this.guna2PictureBox1;
             this.label7.Parent = this.guna2PictureBox1;
             this.label8.Parent = this.guna2PictureBox1;
+            this.label9.Parent = this.guna2PictureBox1;
             this.label10.Parent = this.guna2PictureBox1;
             this.label11.Parent = this.guna2PictureBox1;
             this.label12.Parent = this.guna2PictureBox1;
@@ -215,22 +216,7 @@ namespace ProjectHotel
         private void guna2ImageButton1_Click(object sender, EventArgs e)
         {
            
-                string connectionString = "Server=localhost;Database=db_hotel;Uid=root;Pwd=;";
-                MySqlConnection con = new MySqlConnection(connectionString);
-                con.Open();
-                string query = "SELECT * FROM guest WHERE guestName LIKE @search";
-
-                MySqlCommand command = new MySqlCommand(query, con);
-                command.Parameters.AddWithValue("@search", "%" + txtSearch.Text + "%");
-
-                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
-
-                guna2DataGridView1.DataSource = table;
-
-                con.Close();
-            
+              
 
         }
 
@@ -344,6 +330,26 @@ namespace ProjectHotel
                 }
                
             }
+        }
+
+        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string connectionString = "Server=localhost;Database=db_hotel;Uid=root;Pwd=;";
+            MySqlConnection con = new MySqlConnection(connectionString);
+            con.Open();
+            string query = "SELECT * FROM guest WHERE guestName LIKE @search";
+
+            MySqlCommand command = new MySqlCommand(query, con);
+            command.Parameters.AddWithValue("@search", "%" + txtSearch.Text + "%");
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+
+            guna2DataGridView1.DataSource = table;
+
+            con.Close();
+
         }
     }
 }
