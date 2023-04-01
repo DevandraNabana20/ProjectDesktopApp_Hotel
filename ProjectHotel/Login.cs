@@ -12,36 +12,39 @@ using System.Windows.Forms;
 using Guna.UI2.WinForms;
 using MySql.Data.MySqlClient;
 
+
+
 namespace ProjectHotel
 {
     public partial class Login : Form
     {
+
         public Login()
         {
             InitializeComponent();
         }
 
-
-        private void label1_Click(object sender, EventArgs e)
+        public static class GlobalParams
         {
-
+            public static string namaadminglobal { get; set; }
         }
+
 
         private void guna2ImageButton1_Click(object sender, EventArgs e)
         {
             string connectionString = "server=localhost;port=3306;database=db_hotel;uid=root;password=;";
 
             // Check if the username and password fields are empty
-            if (string.IsNullOrEmpty(txtUsername.Text) || string.IsNullOrEmpty(txtPassword.Text))
+            if (string.IsNullOrWhiteSpace(txtUsername.Text) || string.IsNullOrWhiteSpace(txtPassword.Text))
             {
                 MessageBox.Show(this, "Please enter username and password!!", "Caution", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
 
                 // Set focus to the first empty field
-                if (string.IsNullOrEmpty(txtUsername.Text))
+                if (string.IsNullOrWhiteSpace(txtUsername.Text))
                 {
                     txtUsername.Focus();
                 }
-                else if (string.IsNullOrEmpty(txtPassword.Text))
+                else if (string.IsNullOrWhiteSpace(txtPassword.Text))
                 {
                     txtPassword.Focus();
                 }
@@ -78,12 +81,7 @@ namespace ProjectHotel
                             {
                                 string value = reader.GetString(1); // mengambil nilai kolom pertama dari hasil query
                                 Console.WriteLine(value);
-                                form2.SetText(value);
-
-                                byte[] imgData = (byte[])reader["adminImage"];
-                                MemoryStream ms = new MemoryStream(imgData);
-                                Image image = Image.FromStream(ms);
-                                form2.SetPictureBoxImage(image);
+                                GlobalParams.namaadminglobal = (value);
                             }
                             form2.Show(); // tampilkan Form2
                             this.Hide(); // sembunyikan Form1
