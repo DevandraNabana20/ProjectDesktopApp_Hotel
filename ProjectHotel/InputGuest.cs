@@ -144,6 +144,8 @@ namespace ProjectHotel
                     command.Parameters.AddWithValue("@adminCode", admincode);
 
                     command.ExecuteNonQuery();
+                    MessageBox.Show(this, "Guest record has been created successfully.", "Success",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                     ResetFields();
                     // update guest list
                     Connection connection = new Connection();
@@ -350,6 +352,16 @@ namespace ProjectHotel
 
             con.Close();
 
+        }
+
+        private void txtNama_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Check if the pressed key is a letter or backspace key
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                // If it is not a letter or backspace, set the Handled property to true
+                e.Handled = true;
+            }
         }
     }
 }
