@@ -568,7 +568,6 @@
             this.txtguestCode.Size = new System.Drawing.Size(126, 32);
             this.txtguestCode.TabIndex = 40;
             this.txtguestCode.Text = "guestCode";
-            this.txtguestCode.Visible = false;
             // 
             // label9
             // 

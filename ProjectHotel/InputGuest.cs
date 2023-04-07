@@ -47,6 +47,7 @@ namespace ProjectHotel
 
         private void InputGuest_Load(object sender, EventArgs e)
         {
+            guna2Button2.Enabled = false;
             this.label1.Parent = this.guna2PictureBox1;
             this.label2.Parent = this.guna2PictureBox1;
             this.label3.Parent = this.guna2PictureBox1;
@@ -72,6 +73,8 @@ namespace ProjectHotel
             txtAddress.Text = "";
             guna2DateTimePicker1.Value = DateTime.Now;
             guna2ComboBox1.SelectedItem = null;
+            btnCreate.Enabled = true;
+            guna2Button2.Enabled = false;
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
@@ -146,6 +149,7 @@ namespace ProjectHotel
                     command.ExecuteNonQuery();
                     MessageBox.Show(this, "Guest record has been created successfully.", "Success",
                         MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                    txtguestCode.Text = "guestCode";
                     ResetFields();
                     // update guest list
                     Connection connection = new Connection();
@@ -170,6 +174,8 @@ namespace ProjectHotel
 
         private void guna2DataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            guna2Button2.Enabled = true;
+            btnCreate.Enabled = false;
             txtIdentity.Text = guna2DataGridView1.Rows[guna2DataGridView1.SelectedRows[0].Index].Cells[1].Value.ToString();
             txtNama.Text = guna2DataGridView1.Rows[guna2DataGridView1.SelectedRows[0].Index].Cells[2].Value.ToString();
             guna2DateTimePicker1.Value = Convert.ToDateTime(guna2DataGridView1.Rows[guna2DataGridView1.SelectedRows[0].Index].Cells[3].Value);
@@ -213,14 +219,7 @@ namespace ProjectHotel
             }
         }
 
-       
-
-        private void guna2ImageButton1_Click(object sender, EventArgs e)
-        {
-           
-              
-
-        }
+        
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
@@ -229,10 +228,10 @@ namespace ProjectHotel
                string.IsNullOrWhiteSpace(txtTelephone.Text) ||
                string.IsNullOrWhiteSpace(txtAddress.Text) ||
                guna2DateTimePicker1.Value == null ||
-               guna2ComboBox1.SelectedItem == null)
+               guna2ComboBox1.SelectedItem == null||
+               txtguestCode.Text=="guestCode")
             {
-                MessageBox.Show(this, "Please fill the required field!!", "Caution",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                MessageBox.Show("Please select at least one row in the table before continuing.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -287,7 +286,10 @@ namespace ProjectHotel
                 command.Parameters.AddWithValue("@guestCode", txtguestCode.Text);
 
                 command.ExecuteNonQuery();
+                txtguestCode.Text = "guestCode";
                 ResetFields();
+                btnCreate.Enabled = true;
+                guna2Button2.Enabled = false;
 
                 // Update the guest list
                 Connection connection = new Connection();
@@ -310,7 +312,7 @@ namespace ProjectHotel
                 string.IsNullOrWhiteSpace(txtTelephone.Text) ||
                 string.IsNullOrWhiteSpace(txtAddress.Text) ||
                 guna2DateTimePicker1.Value == null ||
-                guna2ComboBox1.SelectedItem == null|| guna2DataGridView1.SelectedRows.Count == 0)
+                guna2ComboBox1.SelectedItem == null|| guna2DataGridView1.SelectedRows.Count == 0 || string.IsNullOrWhiteSpace(txtguestCode.Text))
             {
                 MessageBox.Show("Please select at least one row in the table before continuing.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if (string.IsNullOrWhiteSpace(txtIdentity.Text)) txtIdentity.Focus();
@@ -323,12 +325,63 @@ namespace ProjectHotel
             }
             else
             {
+                string connectionString = "Server=localhost;Database=db_hotel;Uid=root;Pwd=;";
+                MySqlConnection conn = new MySqlConnection(connectionString);
+                conn.Open();
+                MySqlCommand command1 = new MySqlCommand("SELECT * FROM orders", conn);
+                MySqlDataReader reader1 = command1.ExecuteReader();
+
+                string guestcode1="";
+
+                while (reader1.Read())
+                {
+                   guestcode1 = reader1.GetString(1);
+                }
+
+                reader1.Close();
+                if (txtguestCode.Text == guestcode1) 
+                {
+                    MessageBox.Show(this, "This guest name = "+txtNama.Text+" has maximum 1 order!!", "Caution",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                    return;
+                }
+
+
                 DialogResult dialogResult = MessageBox.Show("Guest Name : "+txtNama.Text+", Is The Guest Name Correct?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Yes)
                 {
                     // If at least one row is selected, enable the button
                     guna2PictureBox4.Enabled = true;
+
+                    
+                    try
+                    {
+                        
+                        // Get the current admin code from the logged-in user
+                        string adminCode = null;
+                        string usernameglobal = Login.GlobalParams.namaadminglobal;
+                        MySqlCommand cmd = new MySqlCommand("SELECT adminCode FROM admin WHERE adminName=@adminName", conn);
+                        cmd.Parameters.AddWithValue("@adminName", usernameglobal);
+                        MySqlDataReader reader = cmd.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            adminCode = reader.GetString(0);
+                        }
+                        reader.Close();
+                        MySqlCommand command = new MySqlCommand("INSERT INTO orders (ordersCode,guestCode,adminCode) VALUES ('',@guestCode,@adminCode)", conn);
+                        command.Parameters.AddWithValue("@guestCode", txtguestCode.Text);
+                        command.Parameters.AddWithValue("@adminCode", adminCode);
+                        command.ExecuteNonQuery();
+
+                    }
+                    catch (MySqlException ex)
+                    {
+                        MessageBox.Show(this, "An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
                     this.Hide();
+                    Reservation reservation = new Reservation();
+                    reservation.Show();
                 }
                
             }
@@ -356,12 +409,7 @@ namespace ProjectHotel
 
         private void txtNama_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Check if the pressed key is a letter or backspace key
-            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back)
-            {
-                // If it is not a letter or backspace, set the Handled property to true
-                e.Handled = true;
-            }
+
         }
     }
 }

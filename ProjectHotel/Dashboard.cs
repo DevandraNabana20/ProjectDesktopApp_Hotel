@@ -95,7 +95,7 @@ namespace ProjectHotel
         private void guna2GradientTileButton3_Click(object sender, EventArgs e)
         {
             this.Hide();
-            ListHotel lh = new ListHotel();
+            RoomList lh = new RoomList();
             lh.Show();
         }
     }

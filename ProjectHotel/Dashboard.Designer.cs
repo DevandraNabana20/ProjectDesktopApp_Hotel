@@ -91,7 +91,7 @@
             this.guna2GradientTileButton1.Name = "guna2GradientTileButton1";
             this.guna2GradientTileButton1.Size = new System.Drawing.Size(337, 60);
             this.guna2GradientTileButton1.TabIndex = 4;
-            this.guna2GradientTileButton1.Text = "Booking";
+            this.guna2GradientTileButton1.Text = "Check In";
             this.guna2GradientTileButton1.UseTransparentBackground = true;
             this.guna2GradientTileButton1.Click += new System.EventHandler(this.guna2GradientTileButton1_Click);
             // 
@@ -114,7 +114,7 @@
             this.guna2GradientTileButton2.Name = "guna2GradientTileButton2";
             this.guna2GradientTileButton2.Size = new System.Drawing.Size(337, 60);
             this.guna2GradientTileButton2.TabIndex = 5;
-            this.guna2GradientTileButton2.Text = "Checkout";
+            this.guna2GradientTileButton2.Text = "Check Out";
             this.guna2GradientTileButton2.UseTransparentBackground = true;
             // 
             // guna2GradientTileButton3
@@ -136,7 +136,7 @@
             this.guna2GradientTileButton3.Name = "guna2GradientTileButton3";
             this.guna2GradientTileButton3.Size = new System.Drawing.Size(337, 60);
             this.guna2GradientTileButton3.TabIndex = 6;
-            this.guna2GradientTileButton3.Text = "List Room";
+            this.guna2GradientTileButton3.Text = "Room List";
             this.guna2GradientTileButton3.UseTransparentBackground = true;
             this.guna2GradientTileButton3.Click += new System.EventHandler(this.guna2GradientTileButton3_Click);
             // 

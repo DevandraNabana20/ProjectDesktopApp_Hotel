@@ -13,14 +13,14 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ProjectHotel
 {
-    public partial class ListHotel : Form
+    public partial class RoomList : Form
     {
-        public ListHotel()
+        public RoomList()
         {
             InitializeComponent();
             Connection connection = new Connection();
             connection.OpenConnection();
-            guna2DataGridView1.DataSource = connection.ShowData("SELECT roomCode AS Code, roomhotelFloor AS Floor, roomStatus AS Status, roomtype AS Type, roomtype.roomDescription AS Description, roomtype.maxGuest AS Max, roomtype.roomPrice_Night AS Price FROM room JOIN roomtype ON room.roomtypeCode = roomtype.roomtypeCode where roomStatus = 'Available'; ");
+            guna2DataGridView1.DataSource = connection.ShowData("SELECT roomCode AS Code, roomhotelFloor AS Floor, roomStatus AS Status, roomtype AS Type, roomtype.roomDescription AS Description, roomtype.maxGuest AS Max, roomtype.roomPrice_Night AS Price FROM room JOIN roomtype ON room.roomtypeCode = roomtype.roomtypeCode; ");
 
             // Mengubah nama kolom pada DataGridView
             guna2DataGridView1.Columns["Code"].HeaderText = "Room Code";
