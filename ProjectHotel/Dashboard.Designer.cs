@@ -116,6 +116,7 @@
             this.guna2GradientTileButton2.TabIndex = 5;
             this.guna2GradientTileButton2.Text = "Check Out";
             this.guna2GradientTileButton2.UseTransparentBackground = true;
+            this.guna2GradientTileButton2.Click += new System.EventHandler(this.guna2GradientTileButton2_Click);
             // 
             // guna2GradientTileButton3
             // 
@@ -161,6 +162,7 @@
             this.guna2GradientTileButton4.TabIndex = 7;
             this.guna2GradientTileButton4.Text = "History";
             this.guna2GradientTileButton4.UseTransparentBackground = true;
+            this.guna2GradientTileButton4.Click += new System.EventHandler(this.guna2GradientTileButton4_Click);
             // 
             // label1
             // 

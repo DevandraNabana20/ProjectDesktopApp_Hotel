@@ -81,3 +81,7 @@ C:\Users\yuman\OneDrive\Documents\VISUAL 2022\PROJECTHOTEL\ProjectHotel\obj\Debu
 C:\Users\yuman\OneDrive\Documents\VISUAL 2022\PROJECTHOTEL\ProjectHotel\obj\Debug\ProjectHotel.Reservation.resources
 C:\Users\yuman\OneDrive\Documents\VISUAL 2022\PROJECTHOTEL\ProjectHotel\obj\Debug\ProjectHotel.SelectRoom.resources
 C:\Users\yuman\OneDrive\Documents\VISUAL 2022\PROJECTHOTEL\ProjectHotel\obj\Debug\ProjectHotel.RoomList.resources
+C:\Users\yuman\OneDrive\Documents\VISUAL 2022\PROJECTHOTEL\ProjectHotel\obj\Debug\ProjectHotel.Payment.resources
+C:\Users\yuman\OneDrive\Documents\VISUAL 2022\PROJECTHOTEL\ProjectHotel\obj\Debug\ProjectHotel.CheckOut.resources
+C:\Users\yuman\OneDrive\Documents\VISUAL 2022\PROJECTHOTEL\ProjectHotel\obj\Debug\ProjectHotel.Details_CheckOut.resources
+C:\Users\yuman\OneDrive\Documents\VISUAL 2022\PROJECTHOTEL\ProjectHotel\obj\Debug\ProjectHotel.History_Orders.resources

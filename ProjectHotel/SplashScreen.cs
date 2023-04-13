@@ -21,7 +21,7 @@ namespace ProjectHotel
         private void timer1_Tick(object sender, EventArgs e)
         {
             
-            StartPoint += 2;
+            StartPoint += 8;
             guna2ProgressBar1.Value = StartPoint;
             if (guna2ProgressBar1.Value == 100)
             {

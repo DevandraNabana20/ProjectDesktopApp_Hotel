@@ -19,6 +19,7 @@ namespace ProjectHotel
             InitializeComponent();
             btnDelete.Enabled = false;
             btnUpdate.Enabled = false;
+
         }
 
         
@@ -54,8 +55,17 @@ namespace ProjectHotel
 
             Connection connection = new Connection();
             connection.OpenConnection();
-            guna2DataGridView1.DataSource = connection.ShowData("SELECT ordersCode,orderdetail.roomCode,roomtype,checkinDate,checkoutDate,subPrice FROM orderdetail JOIN room ON orderdetail.roomCode=room.roomCode JOIN roomtype ON room.roomtypeCode=roomtype.roomtypeCode WHERE ordersCode='" + txtorderCode.Text + "'");
+            guna2DataGridView1.DataSource = connection.ShowData("SELECT ordersCode,orderdetail.roomCode,roomtype,room.roomhotelFloor,roomtype.maxGuest,checkinDate,checkoutDate,subPrice FROM orderdetail JOIN room ON orderdetail.roomCode=room.roomCode JOIN roomtype ON room.roomtypeCode=roomtype.roomtypeCode WHERE ordersCode='" + txtorderCode.Text + "'");
 
+            // Mengubah nama kolom pada DataGridView
+            guna2DataGridView1.Columns[0].HeaderText = "Order Code";
+            guna2DataGridView1.Columns[1].HeaderText = "Room Code";
+            guna2DataGridView1.Columns[2].HeaderText = "Room Type";
+            guna2DataGridView1.Columns[3].HeaderText = "Hotel Floor";
+            guna2DataGridView1.Columns[4].HeaderText = "Max Guest";
+            guna2DataGridView1.Columns[5].HeaderText = "CheckIn Date";
+            guna2DataGridView1.Columns[6].HeaderText = "CheckOut Date";
+            guna2DataGridView1.Columns[7].HeaderText = "Sub Price";
 
         }
 
@@ -160,7 +170,16 @@ namespace ProjectHotel
 
                     Connection connection = new Connection();
                     connection.OpenConnection();
-                    guna2DataGridView1.DataSource = connection.ShowData("SELECT ordersCode,orderdetail.roomCode,roomtype,checkinDate,checkoutDate,subPrice FROM orderdetail JOIN room ON orderdetail.roomCode=room.roomCode JOIN roomtype ON room.roomtypeCode=roomtype.roomtypeCode WHERE ordersCode='" + txtorderCode.Text + "'");
+                    guna2DataGridView1.DataSource = connection.ShowData("SELECT ordersCode,orderdetail.roomCode,roomtype,room.roomhotelFloor,roomtype.maxGuest,checkinDate,checkoutDate,subPrice FROM orderdetail JOIN room ON orderdetail.roomCode=room.roomCode JOIN roomtype ON room.roomtypeCode=roomtype.roomtypeCode WHERE ordersCode='" + txtorderCode.Text + "'");
+                    // Mengubah nama kolom pada DataGridView
+                    guna2DataGridView1.Columns[0].HeaderText = "Order Code";
+                    guna2DataGridView1.Columns[1].HeaderText = "Room Code";
+                    guna2DataGridView1.Columns[2].HeaderText = "Room Type";
+                    guna2DataGridView1.Columns[3].HeaderText = "Hotel Floor";
+                    guna2DataGridView1.Columns[4].HeaderText = "Max Guest";
+                    guna2DataGridView1.Columns[5].HeaderText = "CheckIn Date";
+                    guna2DataGridView1.Columns[6].HeaderText = "CheckOut Date";
+                    guna2DataGridView1.Columns[7].HeaderText = "Sub Price";
 
                     con.Close();
                 }
@@ -211,7 +230,17 @@ namespace ProjectHotel
 
                 Connection connection = new Connection();
                 connection.OpenConnection();
-                guna2DataGridView1.DataSource = connection.ShowData("SELECT ordersCode,orderdetail.roomCode,roomtype,checkinDate,checkoutDate,subPrice FROM orderdetail JOIN room ON orderdetail.roomCode=room.roomCode JOIN roomtype ON room.roomtypeCode=roomtype.roomtypeCode WHERE ordersCode='" + txtorderCode.Text + "'");
+                guna2DataGridView1.DataSource = connection.ShowData("SELECT ordersCode,orderdetail.roomCode,roomtype,room.roomhotelFloor,roomtype.maxGuest,checkinDate,checkoutDate,subPrice FROM orderdetail JOIN room ON orderdetail.roomCode=room.roomCode JOIN roomtype ON room.roomtypeCode=roomtype.roomtypeCode WHERE ordersCode='" + txtorderCode.Text + "'");
+
+                // Mengubah nama kolom pada DataGridView
+                guna2DataGridView1.Columns[0].HeaderText = "Order Code";
+                guna2DataGridView1.Columns[1].HeaderText = "Room Code";
+                guna2DataGridView1.Columns[2].HeaderText = "Room Type";
+                guna2DataGridView1.Columns[3].HeaderText = "Hotel Floor";
+                guna2DataGridView1.Columns[4].HeaderText = "Max Guest";
+                guna2DataGridView1.Columns[5].HeaderText = "CheckIn Date";
+                guna2DataGridView1.Columns[6].HeaderText = "CheckOut Date";
+                guna2DataGridView1.Columns[7].HeaderText = "Sub Price";
 
                 con.Close();
             }
@@ -250,8 +279,8 @@ namespace ProjectHotel
                 }
                 if (string.IsNullOrWhiteSpace(txtselectroom.Text))
                 {
-                    MessageBox.Show("Please select the room first!", "Information",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Please select the room first!", "Caution",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtselectroom.Focus();
                 }
                 else
@@ -277,7 +306,17 @@ namespace ProjectHotel
 
                     Connection connection = new Connection();
                     connection.OpenConnection();
-                    guna2DataGridView1.DataSource = connection.ShowData("SELECT ordersCode,orderdetail.roomCode,roomtype,checkinDate,checkoutDate,subPrice FROM orderdetail JOIN room ON orderdetail.roomCode=room.roomCode JOIN roomtype ON room.roomtypeCode=roomtype.roomtypeCode WHERE ordersCode='" + txtorderCode.Text + "'");
+                    guna2DataGridView1.DataSource = connection.ShowData("SELECT ordersCode,orderdetail.roomCode,roomtype,room.roomhotelFloor,roomtype.maxGuest,checkinDate,checkoutDate,subPrice FROM orderdetail JOIN room ON orderdetail.roomCode=room.roomCode JOIN roomtype ON room.roomtypeCode=roomtype.roomtypeCode WHERE ordersCode='" + txtorderCode.Text + "'");
+
+                    // Mengubah nama kolom pada DataGridView
+                    guna2DataGridView1.Columns[0].HeaderText = "Order Code";
+                    guna2DataGridView1.Columns[1].HeaderText = "Room Code";
+                    guna2DataGridView1.Columns[2].HeaderText = "Room Type";
+                    guna2DataGridView1.Columns[3].HeaderText = "Hotel Floor";
+                    guna2DataGridView1.Columns[4].HeaderText = "Max Guest";
+                    guna2DataGridView1.Columns[5].HeaderText = "CheckIn Date";
+                    guna2DataGridView1.Columns[6].HeaderText = "CheckOut Date";
+                    guna2DataGridView1.Columns[7].HeaderText = "Sub Price";
 
                     con.Close();
                 }
@@ -293,7 +332,17 @@ namespace ProjectHotel
             string connectionString = "Server=localhost;Database=db_hotel;Uid=root;Pwd=;";
             MySqlConnection con = new MySqlConnection(connectionString);
             con.Open();
-            string query = "SELECT ordersCode,orderdetail.roomCode,roomtype,checkinDate,checkoutDate,subPrice FROM orderdetail JOIN room ON orderdetail.roomCode=room.roomCode JOIN roomtype ON room.roomtypeCode=roomtype.roomtypeCode WHERE room.roomCode LIKE @search AND orderdetail.ordersCode LIKE @orderscode";
+            string query = "SELECT ordersCode,orderdetail.roomCode,roomtype,room.roomhotelFloor,roomtype.maxGuest,checkinDate,checkoutDate,subPrice FROM orderdetail JOIN room ON orderdetail.roomCode=room.roomCode JOIN roomtype ON room.roomtypeCode=roomtype.roomtypeCode WHERE room.roomCode LIKE @search AND orderdetail.ordersCode LIKE @orderscode";
+
+            // Mengubah nama kolom pada DataGridView
+            guna2DataGridView1.Columns[0].HeaderText = "Order Code";
+            guna2DataGridView1.Columns[1].HeaderText = "Room Code";
+            guna2DataGridView1.Columns[2].HeaderText = "Room Type";
+            guna2DataGridView1.Columns[3].HeaderText = "Hotel Floor";
+            guna2DataGridView1.Columns[4].HeaderText = "Max Guest";
+            guna2DataGridView1.Columns[5].HeaderText = "CheckIn Date";
+            guna2DataGridView1.Columns[6].HeaderText = "CheckOut Date";
+            guna2DataGridView1.Columns[7].HeaderText = "Sub Price";
 
             MySqlCommand command = new MySqlCommand(query, con);
             command.Parameters.AddWithValue("@search", "%" + txtSearch.Text + "%");
@@ -306,6 +355,28 @@ namespace ProjectHotel
             guna2DataGridView1.DataSource = table;
 
             con.Close();
+        }
+
+        private void guna2PictureBox4_Click(object sender, EventArgs e)
+        {
+            string connectionString = "Server=localhost;Database=db_hotel;Uid=root;Pwd=;";
+            MySqlConnection con = new MySqlConnection(connectionString);
+            con.Open();
+            MySqlCommand command = new MySqlCommand("SELECT * FROM orderdetail where ordersCode='" + txtorderCode.Text + "'", con);
+            MySqlDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                Payment payment = new Payment();
+                payment.lblOrdercode.Text = txtorderCode.Text;
+                this.Hide();
+                payment.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please do some orders in the table before continuing.", "Information",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
         }
     }
 }

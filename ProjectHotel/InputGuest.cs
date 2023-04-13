@@ -33,6 +33,7 @@ namespace ProjectHotel
             guna2DataGridView1.Columns[4].HeaderText = "Guest Gender";
             guna2DataGridView1.Columns[5].HeaderText = "Guest Address";
             guna2DataGridView1.Columns[6].HeaderText = "Guest Telephone Number";
+            guna2DataGridView1.Columns[7].HeaderText = "Admin Code";
 
             // Menghapus pilihan baris pada datagridview secara default
             guna2DataGridView1.ClearSelection();

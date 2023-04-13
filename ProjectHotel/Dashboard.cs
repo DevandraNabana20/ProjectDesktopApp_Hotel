@@ -98,5 +98,19 @@ namespace ProjectHotel
             RoomList lh = new RoomList();
             lh.Show();
         }
+
+        private void guna2GradientTileButton2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            CheckOut co = new CheckOut();
+            co.Show();
+        }
+
+        private void guna2GradientTileButton4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            History_Orders ho = new History_Orders();
+            ho.Show();
+        }
     }
 }
