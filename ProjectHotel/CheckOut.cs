@@ -84,8 +84,11 @@ namespace ProjectHotel
                     reader = command.ExecuteReader();
 
                     Details_CheckOut dco = new Details_CheckOut();
+                    dco.Textareadetails.SelectionAlignment = HorizontalAlignment.Center;
+
 
                     // Output order details
+                    dco.Textareadetails.AppendText("\n");
                     dco.Textareadetails.AppendText("Order Code: " + ordersCode + "\n");
                     dco.Textareadetails.AppendText("Guest Name: " + guestName + "\n");
                     dco.Textareadetails.AppendText("Guest Address: " + guestAddress + "\n");
@@ -119,7 +122,6 @@ namespace ProjectHotel
                     dco.Textareadetails.AppendText("Pay: " + pay + "\n");
                     dco.Textareadetails.AppendText("Money Changes: " + moneyChanges + "\n");
 
-                    dco.Textareadetails.Select(0, 0);
                     dco.Show();
                 }
 

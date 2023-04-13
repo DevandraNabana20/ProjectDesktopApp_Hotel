@@ -47,7 +47,6 @@ C:\Users\yuman\OneDrive\Documents\VISUAL 2022\ProjectHotel\ProjectHotel\bin\Debu
 C:\Users\yuman\OneDrive\Documents\VISUAL 2022\ProjectHotel\ProjectHotel\bin\Debug\System.Memory.dll
 C:\Users\yuman\OneDrive\Documents\VISUAL 2022\ProjectHotel\ProjectHotel\bin\Debug\System.Numerics.Vectors.dll
 C:\Users\yuman\OneDrive\Documents\VISUAL 2022\ProjectHotel\ProjectHotel\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
-C:\Users\yuman\OneDrive\Documents\VISUAL 2022\ProjectHotel\ProjectHotel\bin\Debug\BouncyCastle.Crypto.xml
 C:\Users\yuman\OneDrive\Documents\VISUAL 2022\ProjectHotel\ProjectHotel\bin\Debug\Google.Protobuf.pdb
 C:\Users\yuman\OneDrive\Documents\VISUAL 2022\ProjectHotel\ProjectHotel\bin\Debug\Google.Protobuf.xml
 C:\Users\yuman\OneDrive\Documents\VISUAL 2022\ProjectHotel\ProjectHotel\bin\Debug\K4os.Compression.LZ4.xml
@@ -85,3 +84,5 @@ C:\Users\yuman\OneDrive\Documents\VISUAL 2022\PROJECTHOTEL\ProjectHotel\obj\Debu
 C:\Users\yuman\OneDrive\Documents\VISUAL 2022\PROJECTHOTEL\ProjectHotel\obj\Debug\ProjectHotel.CheckOut.resources
 C:\Users\yuman\OneDrive\Documents\VISUAL 2022\PROJECTHOTEL\ProjectHotel\obj\Debug\ProjectHotel.Details_CheckOut.resources
 C:\Users\yuman\OneDrive\Documents\VISUAL 2022\PROJECTHOTEL\ProjectHotel\obj\Debug\ProjectHotel.History_Orders.resources
+C:\Users\yuman\OneDrive\Documents\VISUAL 2022\PROJECTHOTEL\ProjectHotel\bin\Debug\itextsharp.dll
+C:\Users\yuman\OneDrive\Documents\VISUAL 2022\PROJECTHOTEL\ProjectHotel\bin\Debug\itextsharp.xml
